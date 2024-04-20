@@ -1,9 +1,8 @@
 name: Node.js Build and Deploy
 
-on:
+on:  
   push:
-    branches:
-      - main  # Adjust branch name as needed
+  workflow_dispatch:
 
 jobs:
   prebuild:
@@ -28,6 +27,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
           context: .
-          file: ./Dockerfile  # Path to your Dockerfile
+          file: ./Dockerfile  
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ecomart:latest  # Replace with your Docker Hub username and image name
+          tags: ${{ secrets.DOCKER_USERNAME }}/ecomart:latest  
